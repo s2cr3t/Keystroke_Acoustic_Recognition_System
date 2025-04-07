@@ -1,0 +1,52 @@
+{
+    "sample_rate": 44100,
+    "frame_length": 1024,
+    "hop_length": 256,
+    "mfcc_coef": 40,
+    "min_segment_length": 0.05,
+    "max_segment_length": 0.3,
+    "energy_threshold_percentile": 85,
+    "silence_threshold": 0.03,
+    "min_silence_duration": 0.08,
+    "bandpass_filter": {
+        "lowcut": 100,
+        "highcut": 8000,
+        "order": 4
+    },
+    "feature_extraction": {
+        "use_mfcc": true,
+        "use_spectral": true,
+        "use_temporal": true,
+        "use_wavelet": true,
+        "use_chroma": true
+    },
+    "models": {
+        "traditional": {
+            "use_rf": true,
+            "use_gb": true,
+            "use_svm": false,
+            "ensemble_weight": 0.3
+        },
+        "deep_learning": {
+            "use_cnn": true,
+            "use_lstm": true,
+            "ensemble_weight": 0.7,
+            "batch_size": 32,
+            "epochs": 100,
+            "patience": 10
+        }
+    },
+    "sequence_model": {
+        "use_ngram": true,
+        "use_hmm": true,
+        "ngram_weight": 0.3,
+        "ngram_order": 3
+    },
+    "paths": {
+        "model_dir": "models",
+        "data_dir": "data",
+        "results_dir": "results",
+        "feature_cache": "features.pkl",
+        "config_file": "config.json"
+    }
+}
